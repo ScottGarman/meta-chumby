@@ -13,9 +13,6 @@ do_compile() {
     true
 }
 
-# obm.bin is a ROM, with no gnu_hash.
-INSANE_SKIP_${PN} = True
-
 FILES_${PN} = "/boot"
 
 do_install() {
