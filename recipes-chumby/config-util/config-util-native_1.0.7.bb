@@ -6,6 +6,9 @@ AUTHOR = "Henry Groover"
 LICENSE = "GPLv2"
 PR = "r0"
 
+# No LICENSE related files are included:
+LIC_FILES_CHKSUM = "file://Makefile;md5=55a241aebc975f6f29484fe6c7c20d02"
+
 SRC_URI = "http://files.chumby.com/source/falconwing/build2370/utils-1.0.tgz"
 S = "${WORKDIR}/utils-1.0"
 
