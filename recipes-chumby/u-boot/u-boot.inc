@@ -1,8 +1,6 @@
 DESCRIPTION = "U-Boot - the Universal Boot Loader"
 HOMEPAGE = "http://www.denx.de/wiki/U-Boot/WebHome"
-SECTION = "bootloaders"
-PRIORITY = "optional"
-LICENSE = "GPLv2"
+SECTION = "bootloaders" PRIORITY = "optional" LICENSE = "GPLv2"
 PROVIDES = "virtual/bootloader"
 
 # DEPENDS = "mtd-utils"
@@ -31,6 +29,9 @@ do_install () {
 	install ${S}/${UBOOT_BINARY} ${D}/boot/${UBOOT_IMAGE}
 	ln -sf ${UBOOT_IMAGE} ${D}/boot/${UBOOT_BINARY}
 
+	install -d ${STAGING_BINDIR_NATIVE}
+	install -m 755 tools/mkimage ${STAGING_BINDIR_NATIVE}/
+
 	if [ -e ${WORKDIR}/fw_env.config ] ; then
 	    install -d ${D}${base_sbindir}
 		install -d ${D}${sysconfdir}
@@ -58,8 +59,3 @@ do_deploy () {
 }
 do_deploy[dirs] = "${S}"
 addtask deploy before do_build after do_compile
-
-do_stage() {
-	install -d ${STAGING_BINDIR_NATIVE}
-	install -m 755 tools/mkimage ${STAGING_BINDIR_NATIVE}/
-}
