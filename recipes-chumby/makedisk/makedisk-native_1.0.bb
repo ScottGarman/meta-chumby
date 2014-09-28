@@ -4,9 +4,13 @@ DESCRIPTION = "Disk image creator"
 HOMEPAGE = "http://www.chumby.com/"
 AUTHOR = "Sean Cross"
 LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=31e58b81f7cac0132ba619b1d0ffbe4a"
+
 PR = "r1"
 
-SRC_URI = "file://makedisk.c"
+SRC_URI = "file://makedisk.c \
+           file://LICENSE"
+
 S = "${WORKDIR}"
 
 do_compile() {
