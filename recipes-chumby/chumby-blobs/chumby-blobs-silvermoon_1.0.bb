@@ -1,12 +1,17 @@
 DESCRIPTION = "Chumby boot blobs - miscellaneous binary blobs"
 HOMEPAGE = "http://www.chumby.com/"
 AUTHOR = "Sean Cross"
+# All we have is a binary without sources. I'm suspicious this is
+# really BSD licensed!
 LICENSE = "BSD"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=3456d88788079e00bc8b13405a802849"
 
 PROVIDES = "chumby-blobs"
 COMPATIBLE_MACHINE = "chumby-silvermoon"
 
-SRC_URI = "file://obm.bin"
+SRC_URI = "file://obm.bin \
+           file://LICENSE"
+
 S = "${WORKDIR}"
 
 do_compile() {
